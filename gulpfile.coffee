@@ -20,7 +20,7 @@ zip = require 'gulp-zip'
 gulp.task 'default', ['compile-js','compile-css','build-manifest','copy-icons','make-html'], ->
   manifest = require("./build/manifest.json")
   manifest.version = require("./package.json").version
-  fs.writeFileSync "./build/manifest.json", JSON.stringify(manifest, null, 2)
+  fs.writeFileSync "./build/manifest.json", JSON.stringify(manifest, null, 2) + "\n"
 
 gulp.task 'zip', ['default'], ->
   gulp
