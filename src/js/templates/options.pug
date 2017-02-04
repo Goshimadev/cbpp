@@ -1,6 +1,14 @@
 h1 CB++ Options
 form
-  p
+  div
     label
+      input(type="checkbox", name="supplementUI")
+      |  Supplement Chaturbate User interface
+  div
+    label
+      input(type="checkbox", name="showDeveloperOptions")
+      |  Show developer options in popup
+  div
+    label
+      | Only show data when logged into Chaturbate as 
       input(type="text", name="limitToUsername", placeholder="username")
-      |  CB++ data will only be shown to this user, or when browsing anonymously

@@ -6,6 +6,7 @@ version: "[placeholder]"
 author: "Braveg1rl"
 
 permissions: [
+	"storage",
 	"https://*.chaturbate.com/"
 ]
 

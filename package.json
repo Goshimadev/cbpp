@@ -9,6 +9,9 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "call-delayed": "^1.0.0",
+    "chrome-storage-promise": "^0.1.0",
+    "closest": "0.0.1",
+    "defaults": "^1.0.3",
     "document-promises": "^2.0.0",
     "idb": "^2.0.0",
     "insert-after": "^0.1.3",
