@@ -24,7 +24,7 @@ gulp.task 'default', ['compile-js','compile-css','build-manifest','copy-icons','
 
 gulp.task 'zip', ['default'], ->
   gulp
-    .src('build/*')
+    .src('build/**/*')
     .pipe(zip('build.zip'))
     .pipe(gulp.dest(''))
 
