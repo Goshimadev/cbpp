@@ -1,0 +1,43 @@
+.inlineEditDisplayValue
+  display: inline-block
+  height: 18px
+  border: 1px solid #ddd
+  padding: 2px
+  vertical-align: middle;
+  &:hover
+    border: 1px solid #ccc
+
+.inlineEditPlaceholder
+  color: #999
+  &:hover
+    color: #ccc
+
+body.hideVideo
+  #player
+    filter: opacity(0.01)
+  li img
+    filter: opacity(0.05)
+
+.ppUserNotes
+  width: 165px
+  background-color: transparent
+  outline: none
+  border: 1px solid transparent
+  display: block
+  &:focus
+    resize: both
+    background-color: white
+    border: 1px solid #666
+
+.ppUserLocationNote
+  width: 128px
+  background-color: transparent
+  outline: none
+  border: 1px solid transparent
+  resize: none
+  &:focus
+    background-color: white
+    border: 1px solid #666
+
+.ppUpdateError
+  border: 1px solid red

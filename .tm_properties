@@ -1,0 +1,7 @@
+excludeDirectories = "{.git,node_modules,build}"
+excludeInFolderSearch = "{excludeDirectories,build,compiled}"
+
+includeFiles = "{.gitignore,.npmignore,.travis.yml}"
+
+[ attr.untitled ]
+fileType = 'source.coffee'

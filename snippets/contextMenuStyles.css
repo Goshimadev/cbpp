@@ -1,0 +1,119 @@
+#jscontext .jscontextContainer {
+    margin: 0px;
+    padding: 0px;
+    height: auto;
+    width: 196px;
+    min-width: 196px;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #454545;
+}
+.jscontextContainer .jscontextMenu {
+    border: 1px solid #a4a4a4;
+    background-color: #e7e7e7;
+    margin: 0px;
+    padding-bottom: 8px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    min-height: 106px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+}
+.jscontextContainer .jscontextLabel {
+    margin: 6px 4px;
+    color: #383838;
+    font-weight: bold;
+}
+.jscontextContainer .jscontextLabel img {
+    padding: 3px 5px 0px 0px;
+    vertical-align: top;
+}
+.jscontextContainer p.jscontextBtn {
+    position: relative;
+    height: 16px;
+    padding: 3px 10px 0px 19px;
+    color: #004563;
+    margin: 0px;
+}
+.jscontextContainer p.jscontextBtn:hover {
+    color: #fff;
+    background-color: #7f7f7f;
+    cursor: pointer;
+}
+.jscontextContainer div.pmline {
+    width: 194px;
+    height: 16px;
+    max-height: 16px;
+    margin: 0px auto;
+    color: #004563;
+    overflow: hidden;
+}
+.jscontextContainer div.pmline:hover {
+    background-color: #7f7f7f;
+    cursor: pointer;
+    color: #fff;
+}
+.jscontextContainer div.pmline:after {
+    content: "";
+    clear: both;
+}
+.jscontextContainer div.user {
+    width: 152px;
+    float: left;
+    margin-left: 10px;
+}
+.jscontextContainer div.close {
+    background: url('https://ssl-ccstatic.highwebmedia.com/images/icon-close-off.gif?39fd61fd0f62') no-repeat top right;
+    float: right;
+    width: 14px;
+    height: 16px;
+    margin-right: 10px;
+}
+.jscontextContainer div.pmline:hover div.close {
+    background: #7f7f7f url('https://ssl-ccstatic.highwebmedia.com/images/icon-close-on.gif?4654e5e8c5ce') no-repeat top right;
+    cursor: pointer;
+}
+.jscontextContainer div.submenu_profile {
+    position: relative;
+    padding: 3px 0px 3px 3px;
+    margin: 0px;
+    color: #575757;
+    font-weight: bold;
+}
+.jscontextContainer div.submenu_profile img {
+    border: 1px solid #f47321;
+    vertical-align: top;
+    margin-right: 5px;
+}
+.jscontextContainer div.submenu_profile_info {
+    display: inline-table;
+    margin-top: 5px;
+}
+.jscontextContainer div.submenu_profile_info img.icon {
+    border: none;
+    vertical-align: baseline;
+    padding-left: 3px;
+}
+.jscontextContainer div.submenu_profile_info a {
+    color: #004563;
+    font-weight: normal;
+    text-decoration: none;
+    display: table-row;
+}
+.jscontextContainer div.submenu_profile_info a:hover {
+    text-decoration: underline;
+}
+.jscontextContainer p.pm {
+    background: url('https://ssl-ccstatic.highwebmedia.com/images/icon-email.gif?1b2c7d4d3230') no-repeat 5px 6px;
+}
+.jscontextContainer p.ignore {
+    background: url('https://ssl-ccstatic.highwebmedia.com/images/icon-ignore.gif?007813e7747a') no-repeat 5px 6px;
+}
+.jscontextContainer hr {
+    border: none;
+    border-bottom: 1px solid #8b8b8b;
+    margin: 3px 4px;
+    padding: 0px;
+}
