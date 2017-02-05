@@ -4,8 +4,6 @@ bindFormToChromeStorage = require "./lib/bind-form-to-chrome-storage.js"
 
 template = require "./templates/options.js"
 
-console.log "CB++ options code has loaded."
-
 docInteractive.then ->
   document.body.innerHTML = template()
   form = document.body.querySelector "form"
