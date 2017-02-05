@@ -1,7 +1,7 @@
 Bluebird = require "bluebird"
 idb = require "idb"
 
-describeDB = require "../lib/describe-idb.js"
+describeDB = require "./lib/describe-idb.js"
 
 upgradeDB = require "./upgradeDB.js"
 

@@ -1,7 +1,7 @@
 Bluebird = require "bluebird"
 pluralize = require "pluralize"
 
-getDB = require "./getDB.js"
+getDB = require "../getDB.js"
 
 module.exports = commands =
   getObject: Bluebird.coroutine (objectType, objectId) ->

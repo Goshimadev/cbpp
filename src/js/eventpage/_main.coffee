@@ -1,7 +1,7 @@
 rpcGateway = require "../rpcGateway.js"
 rpcGateway.listen()
 
-getDB = require './getDB.js'
+getDB = require '../getDB.js'
 getDB()
 
 chrome.runtime.onMessage.addListener (msg, sender, sendResponse) ->
