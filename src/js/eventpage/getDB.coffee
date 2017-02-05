@@ -5,9 +5,7 @@ dbName = "cbpp"
 dbVersion = 2
 
 cachedDB = undefined
-module.exports = getDB = ->
-  return cachedDB if cachedDB
-  return cachedDB = openDB()
+module.exports = getDB = -> cachedDB ?= openDB()
 
 openDB = ->
   idb.open(dbName, dbVersion, upgrader).then (db) ->
