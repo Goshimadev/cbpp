@@ -1,8 +1,10 @@
-template = require "./templates/popup.js"
-
 docInteractive = require('document-promises').interactive
 
-console.log "CB++ popup code has loaded."
+bindFormToChromeStorage = require "./lib/bind-form-to-chrome-storage.js"
+
+template = require "./templates/popup.js"
+
 docInteractive.then ->
-  document.body.innerHTML = template({})
-  console.log "yay"
+  document.body.innerHTML = template()
+  form = document.body.querySelector "form"
+  bindFormToChromeStorage form, "devOptions", "local"

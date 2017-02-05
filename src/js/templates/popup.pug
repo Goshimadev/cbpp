@@ -1,10 +1,23 @@
 h1 Cb++
-form
-  p
-    label
-      input(type="checkbox", name="hideVideo" checked=(hideVideo))
-      |  Hide video
-  p
-    label
-      input(type="checkbox", name="hideThumbnails" checked=(hideThumbnails))
-      |  Hide video thumbmails
+
+div.main
+  form
+    h2 Dev options
+    div
+      label
+        input(type="checkbox", name="hideVideo")
+        |  Hide video
+    div
+      label
+        input(type="checkbox", name="hideThumbnails")
+        |  Hide thumbmails
+
+  div
+    h2 Backup
+    p
+      button(id="export") Generate backup file
+
+  div
+    h2 Restore backup
+    p
+      input(type="file",id="import")
