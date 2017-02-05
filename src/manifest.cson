@@ -38,4 +38,4 @@ browser_action:
 options_ui:
 	page: "options.html"
 	chrome_style: true
-	open_in_tab: true
+	open_in_tab: false
