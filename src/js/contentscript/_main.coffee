@@ -1,3 +1,7 @@
+require "chrome-storage-promise"
+
+chromeStorage = chrome.storage.promise.local
+
 delay = require "call-delayed"
 Bluebird = require "bluebird"
 
@@ -7,7 +11,13 @@ page = require "./currentPage.js"
 sendRPC = require("../rpcGateway.js").sendRPC
 sendRPC = makeLogged sendRPC
 
-module.exports = main = ->
+module.exports = main = Bluebird.coroutine ->
+  {options,devOptions} = yield chromeStorage.get ["options","devOptions"]
+  options ?= {}
+  document.body.classList.add "hideVideo" if devOptions.hideVideo
+  document.body.classList.add "hideThumbnails" if devOptions.hideThumbnails
+
+
   console.log "CB++ is running."
   pageType = page.determineType()
   console.log "Logged in on Chaturbate as #{page.getUsername()}"
