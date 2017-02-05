@@ -14,11 +14,10 @@ sendRPC = makeLogged sendRPC
 module.exports = main = Bluebird.coroutine ->
   {options,devOptions} = yield chromeStorage.get ["options","devOptions"]
   options ?= {}
-  document.body.classList.add "hideVideo" if devOptions.hideVideo
-  document.body.classList.add "hideThumbnails" if devOptions.hideThumbnails
+  devOptions ?= {}
+  for optionName in ["hideVideo","hideThumbnails","reduceNoise"]
+    document.body.classList.add optionName if devOptions[optionName]
 
-
-  console.log "CB++ is running."
   pageType = page.determineType()
   console.log "Logged in on Chaturbate as #{page.getUsername()}"
 
