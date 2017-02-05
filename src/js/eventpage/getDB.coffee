@@ -1,21 +1,18 @@
+Bluebird = require "bluebird"
 idb = require "idb"
-dbUpgrade = require "./dbUpgrade.js"
+
+describeDB = require "../lib/describe-idb.js"
+
+upgradeDB = require "./upgradeDB.js"
 
 dbName = "cbpp"
-dbVersion = 2
+dbVersion = 7
 
 cachedDB = undefined
 module.exports = getDB = -> cachedDB ?= openDB()
 
 openDB = ->
-  idb.open(dbName, dbVersion, upgrader).then (db) ->
-    console.log "Opened db #{db.name} version #{db.version}."
-    names = (name for name in db.objectStoreNames)
-    console.log "Available object stores: #{names}"
-    db
-
-upgrader = (db) ->
-  if dbUpgrade[db.oldVersion]?
-    dbUpgrade[db.oldVersion](db)
-  else
-    throw new Error "No upgrade possible from db #{db.name} version #{db.oldVersion}."
+  idb.open(dbName, dbVersion, upgradeDB).then (db) ->
+    console.log "Opened DB #{db.name} v#{db.version}"
+    console.log JSON.stringify (describeDB db), null, 2
+    Bluebird.delay 1, db
