@@ -31,7 +31,7 @@ module.exports = main = Bluebird.coroutine ->
 
     contactId = menu.getUsername()
     contact = yield sendRPC "getObject", ["contact", contactId]
-    contact = {} unless contact
+    contact ?= {}
 
     menu.insertLocationInput contact.locationNote, (value) ->
       sendRPC("setProperty", ["contact", contactId, "locationNote", value])
