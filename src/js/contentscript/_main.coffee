@@ -1,7 +1,4 @@
-require "chrome-storage-promise"
-
-chromeStorage = chrome.storage.promise.local
-
+chrome = require "then-chrome"
 delay = require "call-delayed"
 Bluebird = require "bluebird"
 
@@ -12,7 +9,7 @@ sendRPC = require("../rpcGateway.js").sendRPC
 sendRPC = makeLogged sendRPC
 
 module.exports = main = Bluebird.coroutine ->
-  {options,devOptions} = yield chromeStorage.get ["options","devOptions"]
+  {options,devOptions} = yield chrome.storage.local.get ["options","devOptions"]
   options ?= {}
   devOptions ?= {}
   for optionName in ["hideVideo","hideThumbnails","reduceNoise"]
