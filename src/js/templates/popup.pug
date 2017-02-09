@@ -1,4 +1,5 @@
-h1 Cb++
+div.header
+  h1 Cb++
 
 div.main
   form
@@ -19,9 +20,21 @@ div.main
   div
     h2 Backup
     p
-      button(id="export") Generate backup file
+      button(id="export") Download backup file
 
   div
     h2 Restore backup
-    p
-      input(type="file",id="import")
+    table.steps
+      tr
+        th 1
+        td
+          label.file
+            | Select backup file
+            input(type="file",name="file",id="import")
+          h4 [No file selected]
+          p#backupDescription
+      tr.contingent
+        th 2
+        td
+          button(id="restore") Restore backup
+          p#backupResult

@@ -1,15 +1,22 @@
+@import "functions/button.styl"
+@import "functions/hidden.styl"
+
 body
-  width: 220px
-  background: url("https://ssl-ccstatic.highwebmedia.com/images/bg-body.gif")
-  background-repeat: repeat-x;
+  width: 250px
   margin: 0px
   user-select: none
   color: #222
   font-size: 14px
 
+div.header
+  width 250px
+  background: url("https://ssl-ccstatic.highwebmedia.com/images/bg-body.gif")
+  background-repeat: repeat-x;
+
 div, h1, h2, h3
   cursor: default
   color: #555
+
 
 html
   margin: 0px
@@ -55,3 +62,54 @@ div.main > div
 
 div.main > div, form
   padding: 5px
+
+input[type="file"]
+  hidden()
+
+label.file
+  button(light,#fafafa,13px,"normal",4px,8px)
+  display: inline-block
+
+table.steps
+  width 100%
+  list-style-type: none;
+  counter-reset: steps
+  border: 0px
+  td
+    margin-left: 0px
+    padding-left: 10px
+    vertical-align top
+    padding-top 5px
+    ul
+      margin: 0px
+      padding-left: 20px
+    h3
+      font-weight normal
+      font-size 18px
+      margin-bottom: 0px
+      margin-top: 0px
+      color: #999
+    h4
+      margin: 0px
+      margin-top: 5px
+    p
+      margin-top: 5px
+      font-size: 13px
+  th
+    content: counter(steps)
+    counter-increment: steps
+    font-weight: normal
+    font-size: 40px
+    color: #aaa
+    vertical-align: top
+  tr.contingent
+    th
+      color #d5d5d5
+    td
+      color #aaa
+      font-size 13px
+      h3
+        color: #d5d5d5
+
+button
+  button(light,#fafafa,13px,"normal",4px,8px)
