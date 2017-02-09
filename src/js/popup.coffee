@@ -8,6 +8,7 @@ renderBackupDescription = require "./templates/backupDescription"
 
 bManager = require "./backupManager.js"
 triggerDownload = require "./lib/trigger-download"
+{alert,confirm} = require("./lib/then-dialogs")(hostname: "CB++")
 
 docInteractive.then ->
   document.body.innerHTML = renderPopupPage()
@@ -39,10 +40,9 @@ docInteractive.then ->
         filenameEl.innerText = "[error]"
         descriptionParagraph.innerHTML = "Invalid backup file: #{error.message}"
   restoreButton = document.querySelector '#restore'
-  restoreButton.onclick = ->
-    return window.alert "Please select a valid backup file first." unless jsonData
-    return unless window.confirm "Are you sure you want to restore the backup? All existing data will be deleted."
-    restorePromise = bManager.restoreBackup(jsonData).delay(2000)
+  restoreButton.onclick = Bluebird.coroutine ->
+    return yield alert "Please select a valid backup file first." unless jsonData
+    return unless yield confirm "Are you sure you want to restore the backup? All existing data will be deleted."
     resultParagraph.innerText = "Restoring backup..."
-    restorePromise.then (result) ->
-      resultParagraph.innerText = "Restored #{result.numRecords} records in #{result.elapsedTime} seconds."
+    result = yield bManager.restoreBackup(jsonData).delay(2000)
+    resultParagraph.innerText = "Restored #{result.numRecords} records in #{result.elapsedTime} seconds."
