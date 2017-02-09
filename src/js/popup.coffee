@@ -2,6 +2,7 @@ Bluebird = require "bluebird"
 docInteractive = require('document-promises').interactive
 bindFormToChromeStorage = require "./lib/bind-form-to-chrome-storage.js"
 FileReader = require 'promise-file-reader'
+moment = require "moment"
 
 renderPopupPage = require "./templates/popup.js"
 renderBackupDescription = require "./templates/backupDescription"
@@ -17,7 +18,7 @@ docInteractive.then ->
 
   exportButton = document.querySelector '#export'
   exportButton.onclick = Bluebird.coroutine ->
-    triggerDownload "CBpp backup #{Date.now()}.json", yield bManager.generateBackup()
+    triggerDownload "CBpp-backup-#{moment().format("YYMMDD")}.json", yield bManager.generateBackup()
 
   jsonData = undefined
 
