@@ -15,6 +15,6 @@ describeObjectStore = (store) ->
 
 describeIndex = (index) ->
   name: index.name
-  field: index.field
+  keyPath: index.keyPath
   multiEntry: index.multiEntry
   unique: index.unique
