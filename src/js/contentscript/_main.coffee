@@ -29,9 +29,12 @@ module.exports = main = Bluebird.coroutine ->
     contactId = menu.getUsername()
     contact = yield sendRPC "getRecordedObject", ["contact", contactId]
     contact ?= {}
+    contact.counters ?= {}
+    contact.counters.menuOpened ?= 1
+    sendRPC "setProperty", ["contact", contactId, "counters.menuOpened", contact.counters.menuOpened++]
 
     menu.insertLocationInput contact.locationNote, (value) ->
-      sendRPC("setProperty", ["contact", contactId, "locationNote", value])
+      sendRPC "setProperty", ["contact", contactId, "locationNote", value]
 
     menu.insertNotesArea contact.notes, (value) ->
-      sendRPC("setProperty", ["contact", contactId, "notes", value])
+      sendRPC "setProperty", ["contact", contactId, "notes", value]
