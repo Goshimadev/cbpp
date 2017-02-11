@@ -1,4 +1,5 @@
 pluralize = require "pluralize"
+deepModify = require "../lib/deep-modify"
 
 module.exports = class RecordManager
   constructor: (getDB, recordType) ->
@@ -25,15 +26,14 @@ module.exports = class RecordManager
         record.modifiedAt = new Date
         store.put record
 
-  setProperty: (recordId, propertyName, value) ->
+  setProperty: (recordId, path, value) ->
     @getDB().then (db) =>
       tx = db.transaction @storeName, "readwrite"
       store = tx.objectStore @storeName
       ensureRecord(store, recordId).then (record) ->
-        return false if record.properties[propertyName] is value
-        record.properties[propertyName] = value
-        record.modifiedCount++
-        record.modifiedAt = new Date
+        if deepModify(record.properties, path, value)
+          record.modifiedCount++
+          record.modifiedAt = new Date
         store.put record
         true
 
