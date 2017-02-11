@@ -48,7 +48,6 @@
   "scripts": {
     "build": "gulp",
     "prepublish": "npm test",
-    "pretest": "npm run build",
     "reinstall": "rm -rf node_modules/ && npm install",
     "test": "mocha",
     "watch": "gulp watch"
