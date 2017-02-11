@@ -1,8 +1,9 @@
 rpcGateway = require "../rpcGateway.js"
 rpcGateway.listen()
 
-getDB = require '../getDB.js'
-getDB()
+BoldDB = require '../bold-db/bold-db.js'
+boldDB = new BoldDB
+boldDB.getDB()
 
 chrome.runtime.onMessage.addListener (msg, sender, sendResponse) ->
   return if msg.type is "RPC"

@@ -1,12 +1,12 @@
 Bluebird = require "bluebird"
 idb = require "idb"
 
-describeDB = require "./lib/describe-idb.js"
+describeDB = require "../lib/describe-idb.js"
 
 upgradeDB = require "./upgradeDB.js"
 
 dbName = "cbpp"
-dbVersion = 7
+dbVersion = 8
 
 cachedDB = undefined
 module.exports = getDB = -> cachedDB ?= openDB()

@@ -11,14 +11,24 @@ module.exports = upgradeDB = Bluebird.coroutine (db) ->
     throw error
 
 isSafeToUpgrade = (oldVersion, newVersion) ->
-  return true if oldVersion is 0
-  return true if oldVersion >= 6
-  return false
+  return true
 
 reallyUpgradeDB = Bluebird.coroutine (db) ->
   yield Bluebird.resolve()
-  if db.oldVersion < 2
-    db.createObjectStore 'contacts'
   if db.oldVersion < 6
-    db.deleteObjectStore 'contacts'
     db.createObjectStore 'contacts', keyPath: "id"
+  if db.oldVersion < 8
+    contactStore = db.transaction.objectStore "contacts"
+    contacts = yield contactStore.getAll()
+    yield contactStore.put(upgradeContact contact) for contact in contacts
+    contactStore.createIndex "createdAt", "createdAt"
+    contactStore.createIndex "modifiedAt", "modifiedAt"
+
+upgradeContact = (contact) ->
+  id: contact.id
+  createdAt: (now = new Date).toJSON()
+  modifiedAt: now.toJSON()
+  modifiedCount: 1
+  properties:
+    locationNote: contact.locationNote
+    notes: contact.notes

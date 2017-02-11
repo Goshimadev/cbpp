@@ -27,7 +27,7 @@ module.exports = main = Bluebird.coroutine ->
     menu.linkRoomImg()
 
     contactId = menu.getUsername()
-    contact = yield sendRPC "getObject", ["contact", contactId]
+    contact = yield sendRPC "getRecordedObject", ["contact", contactId]
     contact ?= {}
 
     menu.insertLocationInput contact.locationNote, (value) ->
