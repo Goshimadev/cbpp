@@ -41,7 +41,7 @@ makeStack = (path) ->
 getExpression = (objectName, steps) ->
   expression = objectName
   for step in steps
-    if /^[A-z]+/.test step
+    if /^[A-z]+$/.test step
       expression += ".#{step}"
     else
       expression += "[#{step.toJSON()}]"
