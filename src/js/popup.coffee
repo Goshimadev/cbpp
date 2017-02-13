@@ -32,18 +32,18 @@ docInteractive.then ->
     FileReader.readAsText(file)
       .then (result) ->
         jsonData = undefined
-        filenameEl.innerText = file.name
+        filenameEl.textContent = file.name
         description = bManager.describeBackup result
         jsonData = result
         descriptionParagraph.innerHTML = renderBackupDescription description
       .then null, (error) ->
         jsonData = undefined
-        filenameEl.innerText = "[error]"
+        filenameEl.textContent = "[error]"
         descriptionParagraph.innerHTML = "Invalid backup file: #{error.message}"
   restoreButton = document.querySelector '#restore'
   restoreButton.onclick = Bluebird.coroutine ->
     return yield alert "Please select a valid backup file first." unless jsonData
     return unless yield confirm "Are you sure you want to restore the backup? All existing data will be deleted."
-    resultParagraph.innerText = "Restoring backup..."
+    resultParagraph.textContent = "Restoring backup..."
     result = yield bManager.restoreBackup(jsonData).delay(2000)
-    resultParagraph.innerText = "Restored #{result.numRecords} records in #{result.elapsedTime} seconds."
+    resultParagraph.textContent = "Restored #{result.numRecords} records in #{result.elapsedTime} seconds."
