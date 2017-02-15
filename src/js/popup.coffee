@@ -18,7 +18,9 @@ docInteractive.then ->
 
   exportButton = document.querySelector '#export'
   exportButton.onclick = Bluebird.coroutine ->
-    triggerDownload "CBpp-backup-#{moment().format("YYMMDD")}.json", yield bManager.generateBackup()
+    triggerDownload 
+      filename: "CBpp-backup-#{moment().format("YYMMDD")}.json"
+      data: yield bManager.generateBackup()
 
   jsonData = undefined
 
