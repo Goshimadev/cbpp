@@ -1,4 +1,4 @@
-cbjs = require "../lib/cbjs/cbjs"
+cbjs = require "../lib/cb-js"
 
 db = require "./db"
 
