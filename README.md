@@ -1,5 +1,7 @@
 # CB++ Chrome Extension
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/braveg1rl/cbpp.svg)](https://greenkeeper.io/)
+
 ## Building
 
 To build CB++, you need a recent version of Node.js and NPM.
